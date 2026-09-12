@@ -1,7 +1,7 @@
 # Hi, I'm Adam Fan
 
-Research Assistant @ Academia Sinica, building an open-source network digital twin.
-Junior @ NCKU, Purdue ECE–NCKU CSIE Dual Degree Program candidate.
+- Research Assistant @ Academia Sinica, building an open-source network digital twin.
+- Junior @ NCKU, Purdue ECE–NCKU CSIE Dual Degree Program candidate.
 
 ## Education
 
