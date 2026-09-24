@@ -1,0 +1,133 @@
+name: Repo cards
+
+# Renders a pinned-repo card (light + dark) for each repository listed in the
+# README and commits the SVGs to assets/cards/ on the branch that ran it.
+# Uses stats-organization/github-readme-stats-action, so nothing depends on
+# the public Vercel instance.
+on:
+  schedule:
+    - cron: "20 16 * * *"   # 00:20 Taiwan time
+  workflow_dispatch:
+  push:
+    # Preview only: lets the branch generate its own cards. Remove on merge.
+    branches: [preview/03-repo-cards]
+    paths: [".github/workflows/repo-cards.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repo-cards-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      LIGHT: theme=default&border_color=d0d7de&description_lines_count=2
+      DARK: theme=github_dark&border_color=30363d&description_lines_count=2
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: NDTwin-Kernel-P4 (light)
+        uses: stats-organization/github-readme-stats-action@v2.1.0
+        with:
+          card: pin
+          options: username=${{ github.repository_owner }}&repo=NDTwin-Kernel-P4&${{ env.LIGHT }}
+          path: assets/cards/NDTwin-Kernel-P4.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: "true"
+
+      - name: NDTwin-Kernel-P4 (dark)
+        uses: stats-organization/github-readme-stats-action@v2.1.0
+        with:
+          card: pin
+          options: username=${{ github.repository_owner }}&repo=NDTwin-Kernel-P4&${{ env.DARK }}
+          path: assets/cards/NDTwin-Kernel-P4-dark.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: "true"
+
+      - name: ndtwin-analysis (light)
+        uses: stats-organization/github-readme-stats-action@v2.1.0
+        with:
+          card: pin
+          options: username=${{ github.repository_owner }}&repo=ndtwin-analysis&${{ env.LIGHT }}
+          path: assets/cards/ndtwin-analysis.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: "true"
+
+      - name: ndtwin-analysis (dark)
+        uses: stats-organization/github-readme-stats-action@v2.1.0
+        with:
+          card: pin
+          options: username=${{ github.repository_owner }}&repo=ndtwin-analysis&${{ env.DARK }}
+          path: assets/cards/ndtwin-analysis-dark.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: "true"
+
+      - name: decentralized-file-transfer (light)
+        uses: stats-organization/github-readme-stats-action@v2.1.0
+        with:
+          card: pin
+          options: username=${{ github.repository_owner }}&repo=decentralized-file-transfer&${{ env.LIGHT }}
+          path: assets/cards/decentralized-file-transfer.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: "true"
+
+      - name: decentralized-file-transfer (dark)
+        uses: stats-organization/github-readme-stats-action@v2.1.0
+        with:
+          card: pin
+          options: username=${{ github.repository_owner }}&repo=decentralized-file-transfer&${{ env.DARK }}
+          path: assets/cards/decentralized-file-transfer-dark.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: "true"
+
+      - name: Embedded-RTOS-Scheduler (light)
+        uses: stats-organization/github-readme-stats-action@v2.1.0
+        with:
+          card: pin
+          options: username=${{ github.repository_owner }}&repo=Embedded-RTOS-Scheduler&${{ env.LIGHT }}
+          path: assets/cards/Embedded-RTOS-Scheduler.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: "true"
+
+      - name: Embedded-RTOS-Scheduler (dark)
+        uses: stats-organization/github-readme-stats-action@v2.1.0
+        with:
+          card: pin
+          options: username=${{ github.repository_owner }}&repo=Embedded-RTOS-Scheduler&${{ env.DARK }}
+          path: assets/cards/Embedded-RTOS-Scheduler-dark.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: "true"
+
+      - name: FPGA-Game-Engine (light)
+        uses: stats-organization/github-readme-stats-action@v2.1.0
+        with:
+          card: pin
+          options: username=${{ github.repository_owner }}&repo=FPGA-Game-Engine&${{ env.LIGHT }}
+          path: assets/cards/FPGA-Game-Engine.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: "true"
+
+      - name: FPGA-Game-Engine (dark)
+        uses: stats-organization/github-readme-stats-action@v2.1.0
+        with:
+          card: pin
+          options: username=${{ github.repository_owner }}&repo=FPGA-Game-Engine&${{ env.DARK }}
+          path: assets/cards/FPGA-Game-Engine-dark.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: "true"
+
+      - name: Commit cards if they changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/cards
+          if git diff --cached --quiet; then
+            echo "Cards unchanged."
+            exit 0
+          fi
+          git commit -m "Regenerate repo cards [skip ci]"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

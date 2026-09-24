@@ -49,11 +49,13 @@
 
 ## Repositories
 
-- [NDTwin-Kernel-P4](https://github.com/Adam010341/NDTwin-Kernel-P4) — P4/BMv2 development line of the NDTwin kernel
-- [ndtwin-analysis](https://github.com/Adam010341/ndtwin-analysis) — measurement tooling and figure generators for NDTwin
-- [decentralized-file-transfer](https://github.com/Adam010341/decentralized-file-transfer) — P2P LAN file transfer
-- [Embedded-RTOS-Scheduler](https://github.com/Adam010341/Embedded-RTOS-Scheduler) — real-time scheduler for power-plant task allocation
-- [FPGA-Game-Engine](https://github.com/Adam010341/FPGA-Game-Engine) — game engine in Verilog HDL for the Terasic DE10-Lite
+<p>
+<a href="https://github.com/Adam010341/NDTwin-Kernel-P4"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/NDTwin-Kernel-P4-dark.svg"><img alt="NDTwin-Kernel-P4" src="assets/cards/NDTwin-Kernel-P4.svg" width="49%"></picture></a>
+<a href="https://github.com/Adam010341/ndtwin-analysis"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/ndtwin-analysis-dark.svg"><img alt="ndtwin-analysis" src="assets/cards/ndtwin-analysis.svg" width="49%"></picture></a>
+<a href="https://github.com/Adam010341/decentralized-file-transfer"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/decentralized-file-transfer-dark.svg"><img alt="decentralized-file-transfer" src="assets/cards/decentralized-file-transfer.svg" width="49%"></picture></a>
+<a href="https://github.com/Adam010341/Embedded-RTOS-Scheduler"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/Embedded-RTOS-Scheduler-dark.svg"><img alt="Embedded-RTOS-Scheduler" src="assets/cards/Embedded-RTOS-Scheduler.svg" width="49%"></picture></a>
+<a href="https://github.com/Adam010341/FPGA-Game-Engine"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/FPGA-Game-Engine-dark.svg"><img alt="FPGA-Game-Engine" src="assets/cards/FPGA-Game-Engine.svg" width="49%"></picture></a>
+</p>
 
 adam010341@gmail.com
 
