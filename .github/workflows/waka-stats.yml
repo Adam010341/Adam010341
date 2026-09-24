@@ -1,0 +1,114 @@
+name: WakaTime stats
+
+# Writes the last 7 days of WakaTime coding stats between the waka markers in
+# README.md, once a day. Stays dormant (the update job is skipped) until the
+# WAKATIME_API_KEY repository secret exists.
+on:
+  schedule:
+    - cron: "0 17 * * *"   # 01:00 Taiwan time
+  workflow_dispatch:
+  # Preview only: lets the workflow run once on this branch, where schedule and
+  # workflow_dispatch cannot fire. Remove this trigger when merging into main.
+  push:
+    branches: [preview/09-wakatime]
+    paths: [.github/workflows/waka-stats.yml]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: waka-stats-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  # `secrets` cannot be read in a job-level `if:`, so a tiny job checks for the
+  # key and hands the answer to the update job as an output.
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    outputs:
+      configured: ${{ steps.key.outputs.configured }}
+    steps:
+      - name: Check for the WakaTime key
+        id: key
+        env:
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+        run: |
+          if [ -n "$WAKATIME_API_KEY" ]; then
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::notice title=WakaTime stats skipped::Add the WAKATIME_API_KEY repository secret to enable this workflow."
+          fi
+
+  update:
+    needs: check
+    if: needs.check.outputs.configured == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+
+      # The action only renders here (DEBUG_RUN); the steps below write and
+      # commit README.md with the workflow token. The action's own push embeds
+      # the token as a URL username, which GitHub rejects for the workflow
+      # token, so letting it push would need a personal access token.
+      # Even the v5 tag runs the :master Docker image, so @master is used for
+      # matching inputs, as upstream recommends.
+      - name: Render WakaTime stats
+        id: waka
+        uses: anmol098/waka-readme-stats@master
+        env:
+          DEBUG_RUN: "True"
+          # Name the user explicitly: the workflow token cannot call GET /user.
+          INPUT_GH_USER: ${{ github.repository_owner }}
+        with:
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          GH_TOKEN: ${{ github.token }}
+          SHOW_TOTAL_CODE_TIME: "True"
+          SHOW_LANGUAGE: "True"
+          SHOW_EDITORS: "True"
+          SHOW_UPDATED_DATE: "True"
+          UPDATED_DATE_FORMAT: "%Y-%m-%d"
+          SHOW_PROJECTS: "False"
+          SHOW_OS: "False"
+          SHOW_TIMEZONE: "False"
+          SHOW_COMMIT: "False"
+          SHOW_DAYS_OF_WEEK: "False"
+          SHOW_LANGUAGE_PER_REPO: "False"
+          SHOW_LOC_CHART: "False"
+          SHOW_LINES_OF_CODE: "False"
+          SHOW_PROFILE_VIEWS: "False"
+          SHOW_SHORT_INFO: "False"
+          SHOW_AI_CODE_TIME: "False"
+          SHOW_AI_CODING: "False"
+
+      - name: Write the section into README.md
+        env:
+          STATS: ${{ steps.waka.outputs.README_CONTENT }}
+        run: |
+          python3 - <<'EOF'
+          import os, re
+          stats = os.environ["STATS"].removeprefix("README stats current output:").strip("\n")
+          if not stats.strip():
+              raise SystemExit("waka-readme-stats rendered nothing")
+          start, end = "<!--START_SECTION:waka-->", "<!--END_SECTION:waka-->"
+          text = open("README.md", encoding="utf-8").read()
+          new, n = re.subn(re.escape(start) + r"[\s\S]*?" + re.escape(end),
+                           lambda _: f"{start}\n{stats}\n{end}", text)
+          if n != 1:
+              raise SystemExit(f"expected one waka section in README.md, found {n}")
+          open("README.md", "w", encoding="utf-8").write(new)
+          EOF
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- README.md; then
+            echo "WakaTime section unchanged; nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "Update WakaTime stats [skip ci]"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
