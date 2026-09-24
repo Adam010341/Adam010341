@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
   push:
     # Preview only: lets the branch generate its own cards. Remove on merge.
-    branches: [preview/03-repo-cards]
+    branches: [preview/03b-repo-cards-bold]
     paths: [".github/workflows/repo-cards.yml"]
 
 permissions:
@@ -25,8 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
-      LIGHT: theme=default&border_color=d0d7de&description_lines_count=2
-      DARK: theme=github_dark&border_color=30363d&description_lines_count=2
+      LIGHT: bg_color=f6f8fa&border_color=0969da&title_color=0969da&icon_color=0969da&text_color=1f2328&border_radius=8&description_lines_count=2
+      DARK: bg_color=161b22&border_color=2f81f7&title_color=58a6ff&icon_color=58a6ff&text_color=c9d1d9&border_radius=8&description_lines_count=2
     steps:
       - uses: actions/checkout@v5
 
