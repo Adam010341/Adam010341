@@ -38,6 +38,25 @@
 - **Fault injection** — chaos harnesses to probe defects and race conditions.
 - **Open-source release** — installation manual and VM images.
 
+```mermaid
+flowchart LR
+    apps["NDTwin<br/>applications"] --> kernel["NDTwin kernel"]
+
+    subgraph OF["OpenFlow backend · upstream"]
+        ryu["Ryu controller"] -- "OpenFlow" --> ovs["Open vSwitch"]
+    end
+
+    subgraph P4["P4 backend · my addition"]
+        proxy["P4 proxy agent<br/>(Python)"] -- "P4Runtime (gRPC)" --> bmv2["BMv2<br/>simple_switch_grpc"]
+        bmv2 -. "sampled clones, 1 in 256" .-> proxy
+    end
+
+    kernel -- "Ryu REST" --> ryu
+    kernel -- "same Ryu REST calls" --> proxy
+    ovs -. "sFlow" .-> kernel
+    proxy -. "sFlow v5" .-> kernel
+```
+
 ## Research
 
 - Learned index structures for dynamic packet classification — NCKU CIAL, advised by Prof. Yen-Kuang Chang
