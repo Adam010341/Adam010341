@@ -1,7 +1,7 @@
 name: Profile art
 
-# Regenerates the contribution snake and the 3D contribution graph once a day and
-# publishes them to the `output` branch, so `main` stays free of generated commits.
+# Regenerates the contribution snake once a day and publishes it to the `output`
+# branch, so `main` stays free of generated commits.
 on:
   schedule:
     - cron: "0 16 * * *"   # 00:00 Taiwan time
@@ -27,15 +27,6 @@ jobs:
           outputs: |
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
-
-      - name: 3D contribution graph
-        uses: yoshi389111/github-profile-3d-contrib@v0.9.3
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          USERNAME: ${{ github.repository_owner }}
-
-      - name: Collect outputs
-        run: cp profile-3d-contrib/*.svg dist/
 
       - name: Publish to the output branch
         uses: crazy-max/ghaction-github-pages@v5
