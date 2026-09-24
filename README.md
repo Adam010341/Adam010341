@@ -1,7 +1,23 @@
 # Hi, I'm Adam Fan
 
+<a href="https://github.com/Adam010341"><img alt="Building a network digital twin (NDTwin) · P4/BMv2 · RISC-V · FPGA" src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1200&color=2F81F7&vCenter=true&width=620&lines=Building+a+network+digital+twin+(NDTwin);P4+%2F+BMv2+%C2%B7+Open+vSwitch+%C2%B7+Ryu;RISC-V+%C2%B7+FPGA+%C2%B7+embedded+systems;NCKU+CSIE+%C3%97+Purdue+ECE"></a>
+
 - Research Assistant @ Academia Sinica, building an open-source network digital twin.
 - Junior @ NCKU, Purdue ECE–NCKU CSIE Dual Degree Program candidate.
+
+```text
+     .--.        adam@ndtwin
+    |o_o |       -----------
+    |:_/ |       OS         Ubuntu 24.04 LTS
+   //   \ \      Host       NCKU CSIE × Purdue ECE (dual degree candidate)
+  (|     | )     Role       Research Assistant @ Academia Sinica NSL
+ /'\_   _/`\     Kernel     NDTwin, P4/BMv2 development line
+ \___)=(___/     Shell      bash
+                 Languages  C · C++ · Python · P4 · Java · Verilog · MATLAB · asm
+                 Research   learned indexes for packet classification,
+                            measurement validity in BMv2 benchmarking
+                 Contact    adam010341@gmail.com
+```
 
 ## Education
 
@@ -14,7 +30,7 @@
 - Summer intern, Network and System Laboratory, Academia Sinica — Jul 2026 — Sep 2026
 - Research Assistant, Network and System Laboratory, Academia Sinica — Sep 2026–
 - Undergraduate Researcher, Computer & Internet Architecture Lab, NCKU — Jul 2026–
-- Class representitive, Purdue ECE–NCKU CSIE Dual Degree Program
+- Class representative, Purdue ECE–NCKU CSIE Dual Degree Program
 
 ## What I'm working on — [NDTwin](https://ndtwin.org)
 
@@ -28,6 +44,10 @@
 
 - Learned index structures for dynamic packet classification — NCKU CIAL, advised by Prof. Yen-Kuang Chang
 - Measurement validity in BMv2 benchmarking (preprint in prep) — Independent research
+
+## Tech stack
+
+[![Skills](https://skillicons.dev/icons?i=c,cpp,py,java,verilog,matlab,bash,cmake,latex,linux,ubuntu,git,githubactions)](https://skillicons.dev)
 
 ## Repositories
 
