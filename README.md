@@ -5,6 +5,7 @@
 - Research Assistant @ Academia Sinica, building an open-source network digital twin.
 - Junior @ NCKU, Purdue ECE–NCKU CSIE Dual Degree Program candidate.
 
+<!-- CARD:START -->
 ```text
      .--.        adam@ndtwin
     |o_o |       -----------
@@ -16,6 +17,7 @@
                             measurement validity in BMv2 benchmarking
                  Contact    adam010341@gmail.com
 ```
+<!-- CARD:END -->
 
 ## Education
 
