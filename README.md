@@ -38,17 +38,6 @@
 - **Fault injection** — chaos harnesses to probe defects and race conditions.
 - **Open-source release** — installation manual and VM images.
 
-### Latest commits to [NDTwin-Kernel-P4](https://github.com/Adam010341/NDTwin-Kernel-P4)
-
-<!-- BLOG-POST-LIST:START -->
-- [docs: README -- sFlow carries sampled packets; counters come from /st…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/8db4f06b10087c457178e13adbe91b248aacb5e8) · 2026-09-24
-- [docs: README -- NDTwin architecture figure and the P4 pipeline as a M…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/198bce60e6cd8b1078c3a0fe51e170567c3917e3) · 2026-09-24
-- [doc: stage-three report to Adam &lpar;2026-09-24&rpar; -- what to rule, what wa…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/141d1b86c203c8e820caf448d8223c7e3eecebc6) · 2026-09-24
-- [Merge Adam010341/main &lpar;README badge row, 699b7c85&rpar; into trunk so trun…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/5f1d4611420dd8e53c6ca01ae243a15cc8b5f052) · 2026-09-24
-- [P3 FINDINGS: sections 3 and 4 filled by script from the fifth campaig…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/adb3a0aa456deac65623d437c094eec4e4280dbc) · 2026-09-24
-
-<!-- BLOG-POST-LIST:END -->
-
 ## Research
 
 - Learned index structures for dynamic packet classification — NCKU CIAL, advised by Prof. Yen-Kuang Chang
@@ -72,3 +61,14 @@ adam010341@gmail.com
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Adam010341/Adam010341/output/github-snake-dark.svg">
   <img alt="Snake eating the contribution graph, regenerated daily" src="https://raw.githubusercontent.com/Adam010341/Adam010341/output/github-snake.svg">
 </picture>
+
+<sub><b>Latest commits to <a href="https://github.com/Adam010341/NDTwin-Kernel-P4">NDTwin-Kernel-P4</a></b></sub>
+
+<!-- BLOG-POST-LIST:START -->
+- <sub>[docs: README -- sFlow carries sampled packets; counters come from /st…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/8db4f06b10087c457178e13adbe91b248aacb5e8) · 2026-09-24</sub>
+- <sub>[docs: README -- NDTwin architecture figure and the P4 pipeline as a M…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/198bce60e6cd8b1078c3a0fe51e170567c3917e3) · 2026-09-24</sub>
+- <sub>[doc: stage-three report to Adam &lpar;2026-09-24&rpar; -- what to rule, what wa…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/141d1b86c203c8e820caf448d8223c7e3eecebc6) · 2026-09-24</sub>
+- <sub>[Merge Adam010341/main &lpar;README badge row, 699b7c85&rpar; into trunk so trun…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/5f1d4611420dd8e53c6ca01ae243a15cc8b5f052) · 2026-09-24</sub>
+- <sub>[P3 FINDINGS: sections 3 and 4 filled by script from the fifth campaig…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/adb3a0aa456deac65623d437c094eec4e4280dbc) · 2026-09-24</sub>
+
+<!-- BLOG-POST-LIST:END -->

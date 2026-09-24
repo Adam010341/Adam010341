@@ -32,7 +32,7 @@ jobs:
           feed_list: "https://github.com/Adam010341/NDTwin-Kernel-P4/commits/main.atom"
           accept_header: "application/atom+xml"
           max_post_count: "5"
-          template: "- [$title]($url) · $date$newline"
+          template: "- <sub>[$title]($url) · $date</sub>$newline"
           date_format: "UTC:yyyy-mm-dd"
           tag_post_pre_newline: "true"
           commit_message: "Update latest NDTwin-Kernel-P4 commits [skip ci]"
