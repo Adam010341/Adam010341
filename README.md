@@ -47,6 +47,13 @@
 
 [![Skills](https://skillicons.dev/icons?i=c,cpp,py,java,verilog,matlab,bash,cmake,latex,linux,ubuntu,git,githubactions)](https://skillicons.dev)
 
+## Activity
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Adam010341/Adam010341/output/profile-night-green.svg">
+  <img alt="3D contribution graph, regenerated daily" src="https://raw.githubusercontent.com/Adam010341/Adam010341/output/profile-green.svg">
+</picture>
+
 ## Repositories
 
 - [NDTwin-Kernel-P4](https://github.com/Adam010341/NDTwin-Kernel-P4) — P4/BMv2 development line of the NDTwin kernel
@@ -56,3 +63,8 @@
 - [FPGA-Game-Engine](https://github.com/Adam010341/FPGA-Game-Engine) — game engine in Verilog HDL for the Terasic DE10-Lite
 
 adam010341@gmail.com
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Adam010341/Adam010341/output/github-snake-dark.svg">
+  <img alt="Snake eating the contribution graph, regenerated daily" src="https://raw.githubusercontent.com/Adam010341/Adam010341/output/github-snake.svg">
+</picture>
