@@ -47,13 +47,6 @@
 
 [![Skills](https://skillicons.dev/icons?i=c,cpp,py,java,verilog,matlab,bash,cmake,latex,linux,ubuntu,git,githubactions)](https://skillicons.dev)
 
-## Activity
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Adam010341/Adam010341/output/profile-night-green.svg">
-  <img alt="3D contribution graph, regenerated daily" src="https://raw.githubusercontent.com/Adam010341/Adam010341/output/profile-green.svg">
-</picture>
-
 ## Repositories
 
 - [NDTwin-Kernel-P4](https://github.com/Adam010341/NDTwin-Kernel-P4) — P4/BMv2 development line of the NDTwin kernel
