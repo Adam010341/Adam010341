@@ -50,44 +50,9 @@
 - **Fault injection** — chaos harnesses to probe defects and race conditions.
 - **Open-source release** — installation manual and VM images.
 
-```mermaid
-flowchart TB
-  subgraph apps["NDTwin apps"]
-    direction LR
-    te["Traffic-engineering app"] ~~~ es["Energy-saving app"] ~~~ sim["Simulation / AI-driven apps"]
-  end
-
-  kernel["<b>NDTwin kernel</b><br/>topology & flow monitor · flow routing · data cache"]
-
-  subgraph ofb["OpenFlow backend · upstream"]
-    direction TB
-    ryu["Ryu controller"]
-    ovs[("Open vSwitch<br/>Mininet")]
-  end
-
-  subgraph p4b["P4 backend · my addition"]
-    direction TB
-    proxy["P4 proxy agent · Python"]
-    bmv2[("BMv2 simple_switch_grpc<br/>Mininet")]
-  end
-
-  apps <--> kernel
-  kernel <-- "REST" --> proxy
-  kernel <-- "REST" --> ryu
-  ryu -- "OpenFlow" --> ovs
-  proxy -- "P4Runtime (gRPC)" --> bmv2
-  ovs -. "sFlow" .-> kernel
-  bmv2 -. "sampled clones · 1 in 256" .-> proxy
-  proxy -. "sFlow v5 (synthesised)" .-> kernel
-
-  classDef mine stroke:#2f81f7,stroke-width:2px
-  class proxy,bmv2 mine
-  style p4b stroke:#2f81f7,stroke-width:2px
-```
-
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/p4-packet-walk-dark.svg">
-  <img alt="Animation: a packet crosses h1, s1, s2, h2 on BMv2. Each switch lights the ndtwin_switch.p4 table it matched (flow_5tuple first, ipv4_lpm on a miss), and a 1-in-256 sampled copy goes to the P4 proxy agent, which sends sFlow v5 to the NDTwin kernel." src="assets/p4-packet-walk-light.svg" width="800">
+  <img alt="Animated NDTwin architecture: NDTwin apps (traffic-engineering, energy-saving, simulation / AI-driven) talk to the NDTwin kernel, which talks REST to two interchangeable backends. In the P4 backend (my addition), the P4 proxy agent drives BMv2 simple_switch_grpc in Mininet over P4Runtime (gRPC); a packet crosses h1, s1, s2, h2, each switch lights the ndtwin_switch.p4 table it matched (flow_5tuple first, ipv4_lpm on a miss), and a 1-in-256 sampled copy goes to the proxy, which sends synthesised sFlow v5 to the kernel. In the upstream OpenFlow backend, the Ryu controller drives Open vSwitch in Mininet over OpenFlow, and OVS sends sFlow to the kernel." src="assets/p4-packet-walk-light.svg" width="800">
 </picture>
 
 ## Research
