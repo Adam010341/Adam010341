@@ -95,26 +95,19 @@ flowchart TB
 - Learned index structures for dynamic packet classification — NCKU CIAL, advised by Prof. Yen-Kuang Chang
 - Measurement validity in BMv2 benchmarking (preprint in prep) — Independent research
 
-## Tech stack
+### Tech stack
 
-[![Skills](https://skillicons.dev/icons?i=c,cpp,py,java,verilog,matlab,bash,cmake,latex,linux,ubuntu,git,githubactions)](https://skillicons.dev)
+<a href="https://skillicons.dev"><img alt="Skills" src="https://skillicons.dev/icons?i=c,cpp,py,java,verilog,matlab,bash,cmake,latex,linux,ubuntu,git,githubactions" height="32"></a>
 
-## Coding activity
-
-<!--START_SECTION:waka-->
-> [!NOTE]
-> Weekly coding-time stats from [WakaTime](https://wakatime.com) will appear here. This section switches on once the `WAKATIME_API_KEY` repository secret is added.
-<!--END_SECTION:waka-->
-
-## Repositories
+### Repositories
 
 <p>
-<a href="https://github.com/Adam010341/NDTwin-Kernel-P4"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/NDTwin-Kernel-P4-dark.svg"><img alt="NDTwin-Kernel-P4" src="assets/cards/NDTwin-Kernel-P4.svg" width="49%"></picture></a>
-<a href="https://github.com/Adam010341/ndtwin-analysis"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/ndtwin-analysis-dark.svg"><img alt="ndtwin-analysis" src="assets/cards/ndtwin-analysis.svg" width="49%"></picture></a>
-<a href="https://github.com/Adam010341/cache-aware-riscv-optimization"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/cache-aware-riscv-optimization-dark.svg"><img alt="cache-aware-riscv-optimization" src="assets/cards/cache-aware-riscv-optimization.svg" width="49%"></picture></a>
-<a href="https://github.com/Adam010341/fourier-comms-matlab"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/fourier-comms-matlab-dark.svg"><img alt="fourier-comms-matlab" src="assets/cards/fourier-comms-matlab.svg" width="49%"></picture></a>
-<a href="https://github.com/Adam010341/PIC18F4520-Assembly-Labs"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/PIC18F4520-Assembly-Labs-dark.svg"><img alt="PIC18F4520-Assembly-Labs" src="assets/cards/PIC18F4520-Assembly-Labs.svg" width="49%"></picture></a>
-<a href="https://github.com/Adam010341/rvv-mel-spectrogram"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/rvv-mel-spectrogram-dark.svg"><img alt="rvv-mel-spectrogram" src="assets/cards/rvv-mel-spectrogram.svg" width="49%"></picture></a>
+<a href="https://github.com/Adam010341/NDTwin-Kernel-P4"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/NDTwin-Kernel-P4-dark.svg"><img alt="NDTwin-Kernel-P4" src="assets/cards/NDTwin-Kernel-P4.svg" width="32%"></picture></a>
+<a href="https://github.com/Adam010341/ndtwin-analysis"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/ndtwin-analysis-dark.svg"><img alt="ndtwin-analysis" src="assets/cards/ndtwin-analysis.svg" width="32%"></picture></a>
+<a href="https://github.com/Adam010341/cache-aware-riscv-optimization"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/cache-aware-riscv-optimization-dark.svg"><img alt="cache-aware-riscv-optimization" src="assets/cards/cache-aware-riscv-optimization.svg" width="32%"></picture></a>
+<a href="https://github.com/Adam010341/fourier-comms-matlab"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/fourier-comms-matlab-dark.svg"><img alt="fourier-comms-matlab" src="assets/cards/fourier-comms-matlab.svg" width="32%"></picture></a>
+<a href="https://github.com/Adam010341/PIC18F4520-Assembly-Labs"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/PIC18F4520-Assembly-Labs-dark.svg"><img alt="PIC18F4520-Assembly-Labs" src="assets/cards/PIC18F4520-Assembly-Labs.svg" width="32%"></picture></a>
+<a href="https://github.com/Adam010341/rvv-mel-spectrogram"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/rvv-mel-spectrogram-dark.svg"><img alt="rvv-mel-spectrogram" src="assets/cards/rvv-mel-spectrogram.svg" width="32%"></picture></a>
 </p>
 
 adam010341@gmail.com
@@ -134,3 +127,9 @@ adam010341@gmail.com
 - <sub>[P3 FINDINGS: sections 3 and 4 filled by script from the fifth campaig…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/adb3a0aa456deac65623d437c094eec4e4280dbc) · 2026-09-24</sub>
 
 <!-- BLOG-POST-LIST:END -->
+
+<sub><b>Coding activity</b></sub>
+
+<!--START_SECTION:waka-->
+<sub>Weekly coding-time stats from <a href="https://wakatime.com">WakaTime</a> will appear here once the <code>WAKATIME_API_KEY</code> repository secret is added.</sub>
+<!--END_SECTION:waka-->

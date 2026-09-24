@@ -7,10 +7,6 @@ on:
   schedule:
     - cron: "40 16 * * *"   # 00:40 Taiwan time
   workflow_dispatch:
-  push:
-    # Preview only: lets the branch fill in its own list. Remove on merge.
-    branches: [preview/04-ndtwin-activity-feed]
-    paths: [".github/workflows/ndtwin-commits.yml"]
 
 permissions:
   contents: write
