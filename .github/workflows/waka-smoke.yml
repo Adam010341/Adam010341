@@ -1,34 +1,34 @@
 name: WakaTime smoke test (temporary)
 
-# Temporary check for the preview branch, deleted right after it runs: renders
-# the waka section from upstream's built-in mock data with DEBUG_RUN (nothing
-# is committed), using the same token setup as waka-stats.yml, and checks the
-# workflow token can authenticate a push the way the action does.
+# Temporary check for the preview branch, deleted right after it runs. Runs
+# the same steps as the update job in waka-stats.yml, but with upstream's
+# built-in mock WakaTime data, and only prints the README diff (no commit).
 on:
   push:
     branches: [preview/09-wakatime]
     paths: [.github/workflows/waka-smoke.yml]
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   smoke:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Render with mock WakaTime data (no commit)
+      - uses: actions/checkout@v5
+
+      - name: Render WakaTime stats
         id: waka
         uses: anmol098/waka-readme-stats@master
         env:
+          DEBUG_RUN: "True"
           INPUT_GH_USER: ${{ github.repository_owner }}
           MOCK_WAKATIME: "True"
           MOCK_DATA_DIR: "."
-          DEBUG_RUN: "True"
         with:
           WAKATIME_API_KEY: "mock"
           GH_TOKEN: ${{ github.token }}
-          PUSH_BRANCH_NAME: ${{ github.ref_name }}
           SHOW_TOTAL_CODE_TIME: "True"
           SHOW_LANGUAGE: "True"
           SHOW_EDITORS: "True"
@@ -47,16 +47,23 @@ jobs:
           SHOW_AI_CODE_TIME: "False"
           SHOW_AI_CODING: "False"
 
-      - name: Show the rendered section
+      - name: Write the section into README.md
         env:
-          OUT: ${{ steps.waka.outputs.README_CONTENT }}
-        run: printf '%s\n' "$OUT"
-
-      - name: Push auth check, same URL form as the action (dry run)
-        env:
-          TOKEN: ${{ github.token }}
+          STATS: ${{ steps.waka.outputs.README_CONTENT }}
         run: |
-          git clone -q --depth 1 --branch "$GITHUB_REF_NAME" "https://${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" r
-          cd r
-          git -c user.name=smoke -c user.email=smoke@example.invalid commit -q --allow-empty -m "dry run"
-          GIT_TERMINAL_PROMPT=0 git push --dry-run origin "HEAD:${GITHUB_REF_NAME}"
+          python3 - <<'EOF'
+          import os, re
+          stats = os.environ["STATS"].removeprefix("README stats current output:").strip("\n")
+          if not stats.strip():
+              raise SystemExit("waka-readme-stats rendered nothing")
+          start, end = "<!--START_SECTION:waka-->", "<!--END_SECTION:waka-->"
+          text = open("README.md", encoding="utf-8").read()
+          new, n = re.subn(re.escape(start) + r"[\s\S]*?" + re.escape(end),
+                           lambda _: f"{start}\n{stats}\n{end}", text)
+          if n != 1:
+              raise SystemExit(f"expected one waka section in README.md, found {n}")
+          open("README.md", "w", encoding="utf-8").write(new)
+          EOF
+
+      - name: Show the README diff (mock data, not committed)
+        run: git --no-pager diff -- README.md
