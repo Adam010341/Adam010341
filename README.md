@@ -73,6 +73,11 @@ flowchart TB
   style p4b stroke:#2f81f7,stroke-width:2px
 ```
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/p4-packet-walk-dark.svg">
+  <img alt="Animation: a packet crosses h1, s1, s2, h2 on BMv2. Each switch lights the ndtwin_switch.p4 table it matched (flow_5tuple first, ipv4_lpm on a miss), and a 1-in-256 sampled copy goes to the P4 proxy agent, which sends sFlow v5 to the NDTwin kernel." src="assets/p4-packet-walk-light.svg" width="800">
+</picture>
+
 ## Research
 
 - Learned index structures for dynamic packet classification — NCKU CIAL, advised by Prof. Yen-Kuang Chang
