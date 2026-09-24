@@ -16,6 +16,10 @@
  \___)=(___/     Research   learned indexes for packet classification,
                             measurement validity in BMv2 benchmarking
                  Contact    adam010341@gmail.com
+                 -----------
+                 Repos      13 public · 12 stars
+                 Commits    716 in the past year
+                 Followers  5
 ```
 <!-- CARD:END -->
 
