@@ -32,11 +32,11 @@
 
 ## What I'm working on — [NDTwin](https://ndtwin.org)
 
-- Developing P4/BMv2 support: NDTwin originally only supported Open vSwitch with a Ryu controller. I'm building a customized BMv2 control plane so the kernel drives BMv2 through the same set of APIs.
-- Building unit test and CI/CD system: developing test cases and set up GitHub Actions running build, ctest and ASan/UBSan/TSan jobs on every push.
-- Improving CPU performance and flow sampling precision
-- Defect/race condition probing: building fault-injection and chaos harnesses;
-- Open-source release: maintaining the installation manual and VM images
+- **P4/BMv2 support** — NDTwin ran only on Open vSwitch + Ryu; I'm adding a BMv2 control plane behind the same kernel APIs.
+- **Testing & CI** — unit tests, plus GitHub Actions running build, ctest and ASan/UBSan/TSan on every push.
+- **Performance** — kernel CPU usage and flow-sampling precision.
+- **Fault injection** — chaos harnesses to probe defects and race conditions.
+- **Open-source release** — installation manual and VM images.
 
 ## Research
 
