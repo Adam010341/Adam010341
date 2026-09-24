@@ -39,22 +39,38 @@
 - **Open-source release** — installation manual and VM images.
 
 ```mermaid
-flowchart LR
-    apps["NDTwin<br/>applications"] --> kernel["NDTwin kernel"]
+flowchart TB
+  subgraph apps["NDTwin apps"]
+    direction LR
+    te["Traffic-engineering app"] ~~~ es["Energy-saving app"] ~~~ sim["Simulation / AI-driven apps"]
+  end
 
-    subgraph OF["OpenFlow backend · upstream"]
-        ryu["Ryu controller"] -- "OpenFlow" --> ovs["Open vSwitch"]
-    end
+  kernel["<b>NDTwin kernel</b><br/>topology & flow monitor · flow routing · data cache"]
 
-    subgraph P4["P4 backend · my addition"]
-        proxy["P4 proxy agent<br/>(Python)"] -- "P4Runtime (gRPC)" --> bmv2["BMv2<br/>simple_switch_grpc"]
-        bmv2 -. "sampled clones, 1 in 256" .-> proxy
-    end
+  subgraph ofb["OpenFlow backend · upstream"]
+    direction TB
+    ryu["Ryu controller"]
+    ovs[("Open vSwitch<br/>Mininet")]
+  end
 
-    kernel -- "Ryu REST" --> ryu
-    kernel -- "same Ryu REST calls" --> proxy
-    ovs -. "sFlow" .-> kernel
-    proxy -. "sFlow v5" .-> kernel
+  subgraph p4b["P4 backend · my addition"]
+    direction TB
+    proxy["P4 proxy agent · Python"]
+    bmv2[("BMv2 simple_switch_grpc<br/>Mininet")]
+  end
+
+  apps <--> kernel
+  kernel <-- "REST" --> proxy
+  kernel <-- "REST" --> ryu
+  ryu -- "OpenFlow" --> ovs
+  proxy -- "P4Runtime (gRPC)" --> bmv2
+  ovs -. "sFlow" .-> kernel
+  bmv2 -. "sampled clones · 1 in 256" .-> proxy
+  proxy -. "sFlow v5 (synthesised)" .-> kernel
+
+  classDef mine stroke:#2f81f7,stroke-width:2px
+  class proxy,bmv2 mine
+  style p4b stroke:#2f81f7,stroke-width:2px
 ```
 
 ## Research
