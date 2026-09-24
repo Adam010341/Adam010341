@@ -47,6 +47,13 @@
 
 [![Skills](https://skillicons.dev/icons?i=c,cpp,py,java,verilog,matlab,bash,cmake,latex,linux,ubuntu,git,githubactions)](https://skillicons.dev)
 
+## Coding activity
+
+<!--START_SECTION:waka-->
+> [!NOTE]
+> Weekly coding-time stats from [WakaTime](https://wakatime.com) will appear here. This section switches on once the `WAKATIME_API_KEY` repository secret is added.
+<!--END_SECTION:waka-->
+
 ## Repositories
 
 - [NDTwin-Kernel-P4](https://github.com/Adam010341/NDTwin-Kernel-P4) — P4/BMv2 development line of the NDTwin kernel

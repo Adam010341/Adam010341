@@ -1,0 +1,62 @@
+name: WakaTime smoke test (temporary)
+
+# Temporary check for the preview branch, deleted right after it runs: renders
+# the waka section from upstream's built-in mock data with DEBUG_RUN (nothing
+# is committed), using the same token setup as waka-stats.yml, and checks the
+# workflow token can authenticate a push the way the action does.
+on:
+  push:
+    branches: [preview/09-wakatime]
+    paths: [.github/workflows/waka-smoke.yml]
+
+permissions:
+  contents: write
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Render with mock WakaTime data (no commit)
+        id: waka
+        uses: anmol098/waka-readme-stats@master
+        env:
+          INPUT_GH_USER: ${{ github.repository_owner }}
+          MOCK_WAKATIME: "True"
+          MOCK_DATA_DIR: "."
+          DEBUG_RUN: "True"
+        with:
+          WAKATIME_API_KEY: "mock"
+          GH_TOKEN: ${{ github.token }}
+          PUSH_BRANCH_NAME: ${{ github.ref_name }}
+          SHOW_TOTAL_CODE_TIME: "True"
+          SHOW_LANGUAGE: "True"
+          SHOW_EDITORS: "True"
+          SHOW_UPDATED_DATE: "True"
+          UPDATED_DATE_FORMAT: "%Y-%m-%d"
+          SHOW_PROJECTS: "False"
+          SHOW_OS: "False"
+          SHOW_TIMEZONE: "False"
+          SHOW_COMMIT: "False"
+          SHOW_DAYS_OF_WEEK: "False"
+          SHOW_LANGUAGE_PER_REPO: "False"
+          SHOW_LOC_CHART: "False"
+          SHOW_LINES_OF_CODE: "False"
+          SHOW_PROFILE_VIEWS: "False"
+          SHOW_SHORT_INFO: "False"
+          SHOW_AI_CODE_TIME: "False"
+          SHOW_AI_CODING: "False"
+
+      - name: Show the rendered section
+        env:
+          OUT: ${{ steps.waka.outputs.README_CONTENT }}
+        run: printf '%s\n' "$OUT"
+
+      - name: Push auth check, same URL form as the action (dry run)
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          git clone -q --depth 1 --branch "$GITHUB_REF_NAME" "https://${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" r
+          cd r
+          git -c user.name=smoke -c user.email=smoke@example.invalid commit -q --allow-empty -m "dry run"
+          GIT_TERMINAL_PROMPT=0 git push --dry-run origin "HEAD:${GITHUB_REF_NAME}"
