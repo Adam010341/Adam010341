@@ -6,13 +6,6 @@ on:
   schedule:
     - cron: "30 16 * * *"   # 00:30 Taiwan time
   workflow_dispatch:
-  # Preview only: lets the workflow run once on this branch, where schedule and
-  # workflow_dispatch cannot fire. Remove this trigger when merging into main.
-  push:
-    branches: [preview/07-live-neofetch]
-    paths:
-      - scripts/update_card.py
-      - .github/workflows/terminal-card.yml
 
 permissions:
   contents: write

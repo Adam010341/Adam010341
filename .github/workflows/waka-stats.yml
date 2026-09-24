@@ -7,11 +7,6 @@ on:
   schedule:
     - cron: "0 17 * * *"   # 01:00 Taiwan time
   workflow_dispatch:
-  # Preview only: lets the workflow run once on this branch, where schedule and
-  # workflow_dispatch cannot fire. Remove this trigger when merging into main.
-  push:
-    branches: [preview/09-wakatime]
-    paths: [.github/workflows/waka-stats.yml]
 
 permissions:
   contents: write
@@ -89,9 +84,25 @@ jobs:
         run: |
           python3 - <<'EOF'
           import os, re
+          import html
           stats = os.environ["STATS"].removeprefix("README stats current output:").strip("\n")
           if not stats.strip():
               raise SystemExit("waka-readme-stats rendered nothing")
+          # Small type: prose lines go in <sub>; the ```text bar chart becomes
+          # <pre><sub>…</sub></pre> so the columns stay aligned.
+          out, fence = [], None
+          for line in stats.splitlines():
+              if line.startswith("```"):
+                  if fence is None:
+                      fence = []
+                  else:
+                      out.append("<pre><sub>" + html.escape("\n".join(fence)) + "</sub></pre>\n")
+                      fence = None
+              elif fence is not None:
+                  fence.append(line.rstrip())
+              elif line.strip():
+                  out.append("<sub>" + line.strip() + "</sub>\n")
+          stats = "\n".join(out)
           start, end = "<!--START_SECTION:waka-->", "<!--END_SECTION:waka-->"
           text = open("README.md", encoding="utf-8").read()
           new, n = re.subn(re.escape(start) + r"[\s\S]*?" + re.escape(end),
