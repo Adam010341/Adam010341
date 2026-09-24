@@ -74,11 +74,11 @@ adam010341@gmail.com
 <sub><b>Latest commits to <a href="https://github.com/Adam010341/NDTwin-Kernel-P4">NDTwin-Kernel-P4</a></b></sub>
 
 <!-- BLOG-POST-LIST:START -->
-- <sub>[docs: README -- sFlow carries sampled packets; counters come from /st…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/8db4f06b10087c457178e13adbe91b248aacb5e8) · 2026-09-24</sub>
-- <sub>[docs: README -- NDTwin architecture figure and the P4 pipeline as a M…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/198bce60e6cd8b1078c3a0fe51e170567c3917e3) · 2026-09-24</sub>
-- <sub>[doc: stage-three report to Adam &lpar;2026-09-24&rpar; -- what to rule, what wa…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/141d1b86c203c8e820caf448d8223c7e3eecebc6) · 2026-09-24</sub>
-- <sub>[Merge Adam010341/main &lpar;README badge row, 699b7c85&rpar; into trunk so trun…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/5f1d4611420dd8e53c6ca01ae243a15cc8b5f052) · 2026-09-24</sub>
-- <sub>[P3 FINDINGS: sections 3 and 4 filled by script from the fifth campaig…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/adb3a0aa456deac65623d437c094eec4e4280dbc) · 2026-09-24</sub>
+- <sub>[REPORT-P4 section 5 &lpar;ruling 7 addendum&rpar;: the ecn arm&#39;s driver fix mer…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/bdda2fa8c0d070cac375f5a8602d11c012ed44f0) · 2026-09-24</sub>
+- <sub>[Merge fix/ecn-probe-power-0925 &lpar;TICKET-P4-roles section 7 ruling 7&rpar;: …](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/0c96c1d0848deb876cb814fc36386751318ea41d) · 2026-09-24</sub>
+- <sub>[drive_exercise ecn arm: its own 60-probe train, sender timeout and ba…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/5f985c1ef743045310ec587650c5c57b293a970e) · 2026-09-24</sub>
+- <sub>[drive_exercise tests: the ecn arm&#39;s probe train must have power &lpar;TICK…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/ea3ba89cc94d9d63c84fd13523618296d907466c) · 2026-09-24</sub>
+- <sub>[TICKET-P4-roles section 7 ruling 7: the ecn solution arm&#39;s mark check…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/11ac9106688c6eadc5fb4ad26110d5a0f17e2f2c) · 2026-09-24</sub>
 
 <!-- BLOG-POST-LIST:END -->
 
