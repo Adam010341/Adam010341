@@ -1,0 +1,42 @@
+name: NDTwin commit feed
+
+# Lists the five latest commits to NDTwin-Kernel-P4 (from its Atom feed)
+# between the BLOG-POST-LIST markers in README.md, and commits the README
+# only when the list changed.
+on:
+  schedule:
+    - cron: "40 16 * * *"   # 00:40 Taiwan time
+  workflow_dispatch:
+  push:
+    # Preview only: lets the branch fill in its own list. Remove on merge.
+    branches: [preview/04-ndtwin-activity-feed]
+    paths: [".github/workflows/ndtwin-commits.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ndtwin-commits-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Latest NDTwin-Kernel-P4 commits
+        uses: gautamkrishnar/blog-post-workflow@1.9.7
+        with:
+          feed_list: "https://github.com/Adam010341/NDTwin-Kernel-P4/commits/main.atom"
+          accept_header: "application/atom+xml"
+          max_post_count: "5"
+          template: "- <sub>[$title]($url) · $date</sub>$newline"
+          date_format: "UTC:yyyy-mm-dd"
+          tag_post_pre_newline: "true"
+          commit_message: "Update latest NDTwin-Kernel-P4 commits [skip ci]"
+          committer_username: "github-actions[bot]"
+          committer_email: "41898282+github-actions[bot]@users.noreply.github.com"
+          # No keep-alive dummy commits on the profile repo.
+          enable_keepalive: "false"
