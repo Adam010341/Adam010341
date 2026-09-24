@@ -8,13 +8,11 @@
 ```text
      .--.        adam@ndtwin
     |o_o |       -----------
-    |:_/ |       OS         Ubuntu 24.04 LTS
-   //   \ \      Host       NCKU CSIE × Purdue ECE (dual degree candidate)
-  (|     | )     Role       Research Assistant @ Academia Sinica NSL
- /'\_   _/`\     Kernel     NDTwin, P4/BMv2 development line
- \___)=(___/     Shell      bash
-                 Languages  C · C++ · Python · P4 · Java · Verilog · MATLAB · asm
-                 Research   learned indexes for packet classification,
+    |:_/ |       Host       NCKU CSIE × Purdue ECE (dual degree candidate)
+   //   \ \      Role       Research Assistant @ Academia Sinica NSL
+  (|     | )     Focus      NDTwin, P4/BMv2 development line
+ /'\_   _/`\     Languages  C · C++ · Python · P4 · Java · Verilog · MATLAB · asm
+ \___)=(___/     Research   learned indexes for packet classification,
                             measurement validity in BMv2 benchmarking
                  Contact    adam010341@gmail.com
 ```
