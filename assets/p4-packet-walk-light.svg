@@ -1,30 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="220" viewBox="0 0 800 220" role="img" aria-labelledby="t d">
-<title id="t">A packet crossing a two-switch P4 fabric</title>
-<desc id="d">A packet travels h1, s1, s2, h2. Each BMv2 switch looks it up in flow_5tuple first and in ipv4_lpm on a miss. One pass in three, s1 clones a sampled copy to the P4 proxy agent, which sends an sFlow v5 datagram to the NDTwin kernel.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400" role="img" aria-labelledby="t d">
+<title id="t">NDTwin architecture, with a packet crossing the P4 backend</title>
+<desc id="d">NDTwin apps (traffic-engineering, energy-saving, simulation / AI-driven) talk to the NDTwin kernel (topology &amp; flow monitor, flow routing, data cache), which talks REST to two interchangeable backends. P4 backend, my addition: the P4 proxy agent (Python) drives BMv2 simple_switch_grpc in Mininet over P4Runtime (gRPC). A packet travels h1, s1, s2, h2; each switch looks it up in flow_5tuple first and in ipv4_lpm on a miss. One pass in three, s1 clones a sampled copy (1 in 256, random) to the proxy, which sends a synthesised sFlow v5 datagram to the kernel. OpenFlow backend, upstream: the Ryu controller drives Open vSwitch in Mininet over OpenFlow, and OVS sends sFlow to the kernel.</desc>
 <style>
 text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;fill:#1f2328}
 .tbl,.tag,.mono{font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace}
 .tbl{font-size:11.5px}
 .tag{font-size:10.5px;text-anchor:end;opacity:0}
-.cap,.note,.lg{font-size:10.5px;fill:#59636e}
+.cap,.lg,.lk{font-size:10.5px;fill:#59636e}
 .lbl{font-size:12px;text-anchor:middle}
+.ttl{font-size:11px;font-weight:600}
+.ktl{font-size:13px;font-weight:600;text-anchor:middle}
+.acc{fill:#0969da}.dim{fill:#59636e}.fgc{fill:#1f2328}
 .ln{stroke:#d1d9e0;stroke-width:1.5}
-.cpu{stroke:#59636e;stroke-opacity:.55;stroke-width:1.2;stroke-dasharray:3 4;fill:none}
+.ctl{stroke:#59636e;stroke-width:1.2;fill:none}.ctlh{fill:#59636e}
+.cpl{stroke:#bc4c00;stroke-opacity:.6;stroke-width:1.2;stroke-dasharray:3 4;fill:none}.cplh{fill:#bc4c00;opacity:.6}
+.sfk{stroke:#8250df;stroke-opacity:.7;stroke-width:1.2;stroke-dasharray:3 4;fill:none}.sfkh{fill:#8250df;opacity:.7}
+.pan{fill:#f6f8fa;stroke:#d1d9e0}
+.p4p{fill:#0969da;fill-opacity:.04;stroke:#0969da;stroke-width:1.5}
+.ofp{fill:none;stroke:#d1d9e0;stroke-width:1.2}
+.frm{fill:none;stroke:#0969da;stroke-opacity:.55;stroke-width:1.2}
 .card{fill:#f6f8fa;stroke:#d1d9e0}
 .box{fill:#ffffff;stroke:#d1d9e0;stroke-width:1.2}
+.kbox{fill:#ffffff;stroke:#59636e;stroke-opacity:.6;stroke-width:1.2}
+.mine{fill:#ffffff;stroke:#0969da;stroke-width:1.4}
 .row{fill:#ddf4ff;stroke:#0969da;opacity:0}
 .hl{fill:none;stroke:#0969da;stroke-width:2;opacity:0}
+.hlf{fill:#ddf4ff;stroke:#0969da;stroke-width:2;opacity:0}
 .hit{fill:#1a7f37}.miss{fill:#59636e}
-.pkt{fill:#0969da}.cln{fill:#bc4c00}.sfl{fill:#8250df}
-.hl,.row,.tag,#cl,#sf{animation-timing-function:ease-in-out;animation-iteration-count:infinite}
+.pkt{fill:#0969da}.cln{fill:#bc4c00}.sfl{fill:#8250df}.tick{fill:#59636e}
+.hl,.hlf,.row,.tag,.mv{animation-timing-function:ease-in-out;animation-iteration-count:infinite}
+.mv{opacity:0;animation-duration:9.600000000000001s}
 #pk{animation:pk 3.2s infinite ease-in-out}
 #s1h{animation-name:s1h;animation-duration:3.2s}#s2h{animation-name:s2h;animation-duration:3.2s}
 #s1a{animation-name:s1a;animation-duration:3.2s}#s1t{animation-name:s1t;animation-duration:3.2s}
 #s2a{animation-name:s2a;animation-duration:3.2s}#s2m{animation-name:s2m;animation-duration:3.2s}
 #s2b{animation-name:s2b;animation-duration:3.2s}#s2t{animation-name:s2t;animation-duration:3.2s}
-#cl{animation-name:cl;animation-duration:9.600000000000001s}#sf{animation-name:sf;animation-duration:9.600000000000001s}
+#cl{animation-name:cl}#sf{animation-name:sf}#rt1{animation-name:rt1}#rt2{animation-name:rt2}#ofs{animation-name:ofs}
 #pxh{animation-name:pxh;animation-duration:9.600000000000001s}#kh{animation-name:kh;animation-duration:9.600000000000001s}
-@keyframes pk{0%,4%{transform:translate(56px,118px)}20%,36%{transform:translate(280px,118px)}54%,70%{transform:translate(520px,118px)}88%,100%{transform:translate(744px,118px)}}
+@keyframes pk{0%,4%{transform:translate(48px,254px)}20%,36%{transform:translate(176px,254px)}54%,70%{transform:translate(404px,254px)}88%,100%{transform:translate(524px,254px)}}
 @keyframes s1h{0%,17%,42%,100%{opacity:0}21%,36%{opacity:1}}
 @keyframes s2h{0%,51%,76%,100%{opacity:0}55%,70%{opacity:1}}
 @keyframes s1a{0%,20%,54%,100%{opacity:0}23%,44%{opacity:1}}
@@ -33,70 +46,103 @@ text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helveti
 @keyframes s2m{0%,57%,86%,100%{opacity:0}59%,78%{opacity:1}}
 @keyframes s2b{0%,61%,88%,100%{opacity:0}64%,78%{opacity:1}}
 @keyframes s2t{0%,64%,88%,100%{opacity:0}67%,78%{opacity:1}}
-@keyframes cl{0%,44%{transform:translate(280px,118px);opacity:0}44.6%{opacity:1}51%{transform:translate(376px,189px);opacity:1}51.6%,100%{transform:translate(376px,189px);opacity:0}}
+@keyframes cl{0%,44%{transform:translate(176px,254px);opacity:0}44.6%{opacity:1}51%{transform:translate(212px,178px);opacity:1}51.6%,100%{transform:translate(212px,178px);opacity:0}}
 @keyframes pxh{0%,50%,61%,100%{opacity:0}52%,56%{opacity:1}}
-@keyframes sf{0%,54%{transform:translate(440px,189px);opacity:0}54.6%{opacity:1}61%{transform:translate(680px,189px);opacity:1}61.6%,100%{transform:translate(680px,189px);opacity:0}}
-@keyframes kh{0%,59%,72%,100%{opacity:0}61.5%,66%{opacity:1}}
-@media (prefers-reduced-motion:reduce){#pk,.hl,.row,.tag,#cl,#sf{animation:none}#pk{transform:translate(400px,118px)}}
+@keyframes sf{0%,54%{transform:translate(340px,172px);opacity:0}54.6%{opacity:1}62%{transform:translate(340px,106px);opacity:1}62.6%,100%{transform:translate(340px,106px);opacity:0}}
+@keyframes kh{0%,60.5%,74%,100%{opacity:0}63%,68%{opacity:1}}
+@keyframes rt1{0%,6%{transform:translate(240px,106px);opacity:0}6.1%{opacity:1}9.5%,11%{transform:translate(240px,168px)}14.5%{transform:translate(240px,106px);opacity:1}14.6%,100%{transform:translate(240px,106px);opacity:0}}
+@keyframes rt2{0%,78%{transform:translate(654px,106px);opacity:0}78.1%{opacity:1}81.5%,83%{transform:translate(654px,176px)}86.5%{transform:translate(654px,106px);opacity:1}86.6%,100%{transform:translate(654px,106px);opacity:0}}
+@keyframes ofs{0%,20%{transform:translate(764px,250px);opacity:0}20.1%{opacity:1}27%{transform:translate(764px,106px);opacity:1}27.1%,100%{transform:translate(764px,106px);opacity:0}}
+@media (prefers-reduced-motion:reduce){#pk,.hl,.hlf,.row,.tag,.mv{animation:none}#pk{transform:translate(290px,254px)}#cl{transform:translate(194px,216px);opacity:1}#sf{transform:translate(340px,138px);opacity:1}}
 </style>
 
-<!-- links -->
-<line class="ln" x1="56" y1="118" x2="744" y2="118"/>
-<line class="cpu" x1="280" y1="118" x2="376" y2="189"/>
-<line class="cpu" x1="520" y1="118" x2="424" y2="189"/>
-<path class="ln" d="M480 189H592" fill="none"/>
-<path d="M592 185l7 4-7 4z" fill="#d1d9e0"/>
+<!-- panels -->
+<rect class="pan" x="8" y="8" width="784" height="42" rx="8"/>
+<text class="ttl" x="20" y="33">NDTwin apps</text>
+<rect class="p4p" x="8" y="150" width="556" height="242" rx="8"/>
+<text class="ttl acc" x="20" y="168">P4 backend · my addition</text>
+<rect class="frm" x="20" y="222" width="532" height="158" rx="6"/>
+<text class="cap" x="32" y="370">BMv2 <tspan class="mono fgc">simple_switch_grpc</tspan> · Mininet</text>
+<text class="cap" x="540" y="370" text-anchor="end"><tspan class="mono fgc">ndtwin_switch.p4</tspan> · v1model</text>
 
-<!-- moving parts, drawn under the boxes so they vanish into them -->
+<!-- P4 backend links -->
+<path class="ctl" d="M400.0 55.0L400.0 67.0"/><path class="ctlh" d="M400 72L396.7 66.0L403.3 66.0z"/><path class="ctlh" d="M400 50L403.3 56.0L396.7 56.0z"/>
+<path class="ctl" d="M240.0 119.0L240.0 157.0"/><path class="ctlh" d="M240 162L236.7 156.0L243.3 156.0z"/><path class="ctlh" d="M240 114L243.3 120.0L236.7 120.0z"/>
+<text class="lk" x="234" y="136" text-anchor="end">REST</text>
+<path class="sfk" d="M340.0 162.0L340.0 119.0"/><path class="sfkh" d="M340 114L343.3 120.0L336.7 120.0z"/>
+<text class="lk" x="353" y="136">sFlow v5 (synthesised)</text>
+<path class="ctl" d="M240.0 194.0L240.0 217.0"/><path class="ctlh" d="M240 222L236.7 216.0L243.3 216.0z"/>
+<text class="lk" x="246" y="212">P4Runtime (gRPC)</text>
+<path class="cpl" d="M184.1 237.0L202.3 198.5"/><path class="cplh" d="M204.421 194L204.8 200.8L198.9 198.0z"/>
+<path class="cpl" d="M395.9 237.0L377.7 198.5"/><path class="cplh" d="M375.579 194L381.1 198.0L375.2 200.8z"/>
+<text class="lk" x="188" y="212" text-anchor="end">clone to CPU · 1 in 256, random</text>
+<line class="ln" x1="48" y1="254" x2="524" y2="254"/>
+
+<!-- P4 movers, drawn under the boxes so they vanish into them -->
+<circle id="rt1" class="tick mv" r="2.5"/>
 <rect id="pk" class="pkt" x="-9" y="-5" width="18" height="10" rx="2"/>
-<rect id="cl" class="cln" x="-6" y="-4" width="12" height="8" rx="2"/>
-<rect id="sf" class="sfl" x="-8" y="-5" width="16" height="10" rx="2"/>
+<rect id="cl" class="cln mv" x="-6" y="-4" width="12" height="8" rx="2"/>
+<rect id="sf" class="sfl mv" x="-8" y="-5" width="16" height="10" rx="2"/>
 
-<!-- program -->
-<text class="mono" x="16" y="26" style="font-size:11.5px">ndtwin_switch.p4</text>
-<text class="note" x="16" y="42">v1model · BMv2</text>
+<!-- P4 boxes -->
+<rect class="mine" x="195" y="162" width="190" height="32" rx="6"/>
+<rect id="pxh" class="hlf" x="195" y="162" width="190" height="32" rx="6"/>
+<text class="lbl" x="290" y="182">P4 proxy agent · Python</text>
 
-  <g>
-    <line class="ln" x1="280" y1="76" x2="280" y2="101"/>
-    <rect class="card" x="165" y="10" width="230" height="66" rx="6"/>
-    <text class="cap" x="175" y="25">s1 · BMv2 ingress</text>
-    <rect id="s1a" class="row" x="170" y="31" width="220" height="19" rx="3"/>
-    <rect id="s1b" class="row" x="170" y="52" width="220" height="19" rx="3"/>
-    <text class="tbl" x="176" y="44.5">flow_5tuple</text>
-    <text class="tbl" x="176" y="65.5">ipv4_lpm</text>
-  </g>
+<line class="ln" x1="176" y1="271" x2="176" y2="286"/>
+<rect class="card" x="66" y="286" width="220" height="66" rx="6"/>
+<text class="cap" x="76" y="301">s1 · BMv2 ingress</text>
+<rect id="s1a" class="row" x="71" y="307" width="210" height="19" rx="3"/>
+<rect id="s1b" class="row" x="71" y="328" width="210" height="19" rx="3"/>
+<text class="tbl" x="77" y="320.5">flow_5tuple</text>
+<text class="tbl" x="77" y="341.5">ipv4_lpm</text>
 
-  <g>
-    <line class="ln" x1="520" y1="76" x2="520" y2="101"/>
-    <rect class="card" x="405" y="10" width="230" height="66" rx="6"/>
-    <text class="cap" x="415" y="25">s2 · BMv2 ingress</text>
-    <rect id="s2a" class="row" x="410" y="31" width="220" height="19" rx="3"/>
-    <rect id="s2b" class="row" x="410" y="52" width="220" height="19" rx="3"/>
-    <text class="tbl" x="416" y="44.5">flow_5tuple</text>
-    <text class="tbl" x="416" y="65.5">ipv4_lpm</text>
-  </g>
-<text id="s1t" class="tag hit" x="384" y="44.5">hit · ipv4_forward</text>
-<text id="s2m" class="tag miss" x="624" y="44.5">miss</text>
-<text id="s2t" class="tag hit" x="624" y="65.5">hit · ipv4_forward</text>
+<line class="ln" x1="404" y1="271" x2="404" y2="286"/>
+<rect class="card" x="294" y="286" width="220" height="66" rx="6"/>
+<text class="cap" x="304" y="301">s2 · BMv2 ingress</text>
+<rect id="s2a" class="row" x="299" y="307" width="210" height="19" rx="3"/>
+<rect id="s2b" class="row" x="299" y="328" width="210" height="19" rx="3"/>
+<text class="tbl" x="305" y="320.5">flow_5tuple</text>
+<text class="tbl" x="305" y="341.5">ipv4_lpm</text>
+<text id="s1t" class="tag hit" x="275" y="320.5">hit · ipv4_forward</text>
+<text id="s2m" class="tag miss" x="503" y="320.5">miss</text>
+<text id="s2t" class="tag hit" x="503" y="341.5">hit · ipv4_forward</text>
+<rect class="box" x="28" y="240" width="40" height="28" rx="5"/><text class="lbl" x="48" y="258">h1</text>
+<rect class="box" x="504" y="240" width="40" height="28" rx="5"/><text class="lbl" x="524" y="258">h2</text>
+<rect class="box" x="146" y="237" width="60" height="34" rx="6"/><text class="lbl" x="176" y="258">s1</text>
+<rect class="box" x="374" y="237" width="60" height="34" rx="6"/><text class="lbl" x="404" y="258">s2</text>
+<rect id="s1h" class="hl" x="146" y="237" width="60" height="34" rx="6"/>
+<rect id="s2h" class="hl" x="374" y="237" width="60" height="34" rx="6"/>
 
-<!-- nodes -->
-<rect class="box" x="34" y="104" width="44" height="28" rx="5"/><text class="lbl" x="56" y="122">h1</text>
-<rect class="box" x="722" y="104" width="44" height="28" rx="5"/><text class="lbl" x="744" y="122">h2</text>
-<rect class="box" x="250" y="101" width="60" height="34" rx="6"/><text class="lbl" x="280" y="122">s1</text>
-<rect class="box" x="490" y="101" width="60" height="34" rx="6"/><text class="lbl" x="520" y="122">s2</text>
-<rect id="s1h" class="hl" x="250" y="101" width="60" height="34" rx="6"/>
-<rect id="s2h" class="hl" x="490" y="101" width="60" height="34" rx="6"/>
-<rect class="box" x="320" y="172" width="160" height="34" rx="6"/><text class="lbl" x="400" y="193">P4 proxy agent</text>
-<rect class="box" x="600" y="172" width="160" height="34" rx="6"/><text class="lbl" x="680" y="193">NDTwin kernel</text>
-<rect id="pxh" class="hl" x="320" y="172" width="160" height="34" rx="6"/>
-<rect id="kh" class="hl" x="600" y="172" width="160" height="34" rx="6"/>
-<text class="note" x="540" y="179" text-anchor="middle">sFlow v5</text>
-<text class="note" x="316" y="170" text-anchor="end">clone to CPU · 1 in 256, random</text>
+<!-- OpenFlow backend, muted -->
+<g opacity=".72">
+<rect class="ofp" x="576" y="150" width="216" height="154" rx="8"/>
+<text class="ttl dim" x="588" y="294">OpenFlow backend · upstream</text>
+<path class="ctl" d="M654.0 119.0L654.0 165.0"/><path class="ctlh" d="M654 170L650.7 164.0L657.3 164.0z"/><path class="ctlh" d="M654 114L657.3 120.0L650.7 120.0z"/>
+<text class="lk" x="648" y="136" text-anchor="end">REST</text>
+<path class="sfk" d="M764.0 237.0L764.0 119.0"/><path class="sfkh" d="M764 114L767.3 120.0L760.7 120.0z"/>
+<text class="lk" x="753" y="136" text-anchor="end">sFlow</text>
+<path class="ctl" d="M654.0 202.0L654.0 232.0"/><path class="ctlh" d="M654 237L650.7 231.0L657.3 231.0z"/>
+<text class="lk" x="660" y="224">OpenFlow</text>
+<circle id="rt2" class="tick mv" r="2.5"/>
+<rect id="ofs" class="sfl mv" x="-5" y="-3" width="10" height="6" rx="1.5"/>
+<rect class="box" x="588" y="170" width="132" height="32" rx="6"/>
+<text class="lbl" x="654" y="190">Ryu controller</text>
+<rect class="box" x="588" y="237" width="192" height="34" rx="6"/>
+<text class="lbl" x="684" y="258">Open vSwitch · Mininet</text>
+</g>
+
+<!-- kernel and apps, drawn last so every upward mover disappears into the kernel -->
+<rect class="kbox" x="8" y="72" width="784" height="42" rx="8"/>
+<rect id="kh" class="hl" x="8" y="72" width="784" height="42" rx="8"/>
+<text class="ktl" x="400" y="90">NDTwin kernel</text>
+<text class="cap" x="400" y="106" text-anchor="middle">topology &amp; flow monitor · flow routing · data cache</text>
+<rect class="box" x="157" y="16" width="156" height="26" rx="5"/><text class="lbl" x="235" y="33">Traffic-engineering app</text>
+<rect class="box" x="325" y="16" width="128" height="26" rx="5"/><text class="lbl" x="389" y="33">Energy-saving app</text>
+<rect class="box" x="465" y="16" width="178" height="26" rx="5"/><text class="lbl" x="554" y="33">Simulation / AI-driven apps</text>
 
 <!-- legend -->
-<g class="lg">
-  <rect class="pkt" x="16" y="190" width="12" height="8" rx="2"/><text class="lg" x="33" y="198">packet</text>
-  <rect class="cln" x="84" y="190" width="12" height="8" rx="2"/><text class="lg" x="101" y="198">sampled copy</text>
-  <rect class="sfl" x="184" y="190" width="12" height="8" rx="2"/><text class="lg" x="201" y="198">sFlow datagram</text>
-</g>
+<rect class="pkt" x="588" y="328" width="12" height="8" rx="2"/><text class="lg" x="606" y="336">packet</text>
+<rect class="cln" x="588" y="346" width="12" height="8" rx="2"/><text class="lg" x="606" y="354">sampled copy</text>
+<rect class="sfl" x="588" y="364" width="12" height="8" rx="2"/><text class="lg" x="606" y="372">sFlow datagram</text>
 </svg>
