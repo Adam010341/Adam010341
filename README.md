@@ -49,11 +49,14 @@
 
 ## Repositories
 
-- [NDTwin-Kernel-P4](https://github.com/Adam010341/NDTwin-Kernel-P4) — P4/BMv2 development line of the NDTwin kernel
-- [ndtwin-analysis](https://github.com/Adam010341/ndtwin-analysis) — measurement tooling and figure generators for NDTwin
-- [decentralized-file-transfer](https://github.com/Adam010341/decentralized-file-transfer) — P2P LAN file transfer
-- [Embedded-RTOS-Scheduler](https://github.com/Adam010341/Embedded-RTOS-Scheduler) — real-time scheduler for power-plant task allocation
-- [FPGA-Game-Engine](https://github.com/Adam010341/FPGA-Game-Engine) — game engine in Verilog HDL for the Terasic DE10-Lite
+<p>
+<a href="https://github.com/Adam010341/NDTwin-Kernel-P4"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/NDTwin-Kernel-P4-dark.svg"><img alt="NDTwin-Kernel-P4" src="assets/cards/NDTwin-Kernel-P4.svg" width="49%"></picture></a>
+<a href="https://github.com/Adam010341/ndtwin-analysis"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/ndtwin-analysis-dark.svg"><img alt="ndtwin-analysis" src="assets/cards/ndtwin-analysis.svg" width="49%"></picture></a>
+<a href="https://github.com/Adam010341/cache-aware-riscv-optimization"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/cache-aware-riscv-optimization-dark.svg"><img alt="cache-aware-riscv-optimization" src="assets/cards/cache-aware-riscv-optimization.svg" width="49%"></picture></a>
+<a href="https://github.com/Adam010341/fourier-comms-matlab"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/fourier-comms-matlab-dark.svg"><img alt="fourier-comms-matlab" src="assets/cards/fourier-comms-matlab.svg" width="49%"></picture></a>
+<a href="https://github.com/Adam010341/PIC18F4520-Assembly-Labs"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/PIC18F4520-Assembly-Labs-dark.svg"><img alt="PIC18F4520-Assembly-Labs" src="assets/cards/PIC18F4520-Assembly-Labs.svg" width="49%"></picture></a>
+<a href="https://github.com/Adam010341/rvv-mel-spectrogram"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/rvv-mel-spectrogram-dark.svg"><img alt="rvv-mel-spectrogram" src="assets/cards/rvv-mel-spectrogram.svg" width="49%"></picture></a>
+</p>
 
 adam010341@gmail.com
 
