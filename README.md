@@ -38,6 +38,11 @@
 - **Fault injection** — chaos harnesses to probe defects and race conditions.
 - **Open-source release** — installation manual and VM images.
 
+### Latest commits to [NDTwin-Kernel-P4](https://github.com/Adam010341/NDTwin-Kernel-P4)
+
+<!-- BLOG-POST-LIST:START -->
+<!-- BLOG-POST-LIST:END -->
+
 ## Research
 
 - Learned index structures for dynamic packet classification — NCKU CIAL, advised by Prof. Yen-Kuang Chang
