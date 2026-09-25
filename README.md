@@ -54,11 +54,11 @@ adam010341@gmail.com
 <sub><b>Latest commits to <a href="https://github.com/Adam010341/NDTwin-Kernel-P4">NDTwin-Kernel-P4</a></b></sub>
 
 <!-- BLOG-POST-LIST:START -->
-- <sub>[REPORT-P4 section 5 &lpar;ruling 7 addendum&rpar;: the ecn arm&#39;s driver fix mer…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/bdda2fa8c0d070cac375f5a8602d11c012ed44f0) · 2026-09-24</sub>
-- <sub>[Merge fix/ecn-probe-power-0925 &lpar;TICKET-P4-roles section 7 ruling 7&rpar;: …](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/0c96c1d0848deb876cb814fc36386751318ea41d) · 2026-09-24</sub>
-- <sub>[drive_exercise ecn arm: its own 60-probe train, sender timeout and ba…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/5f985c1ef743045310ec587650c5c57b293a970e) · 2026-09-24</sub>
-- <sub>[drive_exercise tests: the ecn arm&#39;s probe train must have power &lpar;TICK…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/ea3ba89cc94d9d63c84fd13523618296d907466c) · 2026-09-24</sub>
-- <sub>[TICKET-P4-roles section 7 ruling 7: the ecn solution arm&#39;s mark check…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/11ac9106688c6eadc5fb4ad26110d5a0f17e2f2c) · 2026-09-24</sub>
+- <sub>[Merge feat/p4-heartbeat-0925 segment H &lpar;TICKET-P4-heartbeat, Adam 09-…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/377a1271e93ff0f315689fc50e69b673fc3a9731) · 2026-09-25</sub>
+- <sub>[Merge fix/p4proxy-requirements-0925 &lpar;TICKET-p4proxy-requirements, Ada…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/a4c951a8c3bf79fd59fdad368f20c35bf62b66b9) · 2026-09-25</sub>
+- <sub>[heartbeat round 2 mutants: 6 more in the heartbeat gate, 3 in G-7&#39;s, …](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/b22e88ed1629bc0e28293ee6271d19e6bc0f9543) · 2026-09-25</sub>
+- <sub>[heartbeat round 2: refuse NDTwin&#39;s own pipeline, root-owned bmv2 only…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/f139c80012669fb77c5e4c5c9cb1c7521d021cfb) · 2026-09-25</sub>
+- <sub>[heartbeat round 2, tests first: Adam&#39;s two rulings, the judge&#39;s notes…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/fb4243e28b4e643d8781fe11cd5219abe7895788) · 2026-09-25</sub>
 
 <!-- BLOG-POST-LIST:END -->
 
