@@ -2,7 +2,6 @@
 
 <a href="https://github.com/Adam010341"><img alt="Building a network digital twin (NDTwin) · P4/BMv2 · RISC-V · FPGA" src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1200&color=2F81F7&vCenter=true&width=620&lines=Building+a+network+digital+twin+(NDTwin);P4+%2F+BMv2+%C2%B7+Open+vSwitch+%C2%B7+Ryu;RISC-V+%C2%B7+FPGA+%C2%B7+embedded+systems;NCKU+CSIE+%C3%97+Purdue+ECE"></a>
 
-<!-- CARD:START -->
 ```text
      .--.        adam@ndtwin
     |o_o |       -----------
@@ -14,11 +13,6 @@
                             measurement validity in BMv2 benchmarking
                  Contact    adam010341@gmail.com
                  -----------
-                 Repos      13 public · 12 stars
-                 Commits    809 in the past year
-                 Followers  5
-```
-<!-- CARD:END -->
 
 ## Education
 
