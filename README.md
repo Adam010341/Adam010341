@@ -2,9 +2,6 @@
 
 <a href="https://github.com/Adam010341"><img alt="Building a network digital twin (NDTwin) · P4/BMv2 · RISC-V · FPGA" src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1200&color=2F81F7&vCenter=true&width=620&lines=Building+a+network+digital+twin+(NDTwin);P4+%2F+BMv2+%C2%B7+Open+vSwitch+%C2%B7+Ryu;RISC-V+%C2%B7+FPGA+%C2%B7+embedded+systems;NCKU+CSIE+%C3%97+Purdue+ECE"></a>
 
-- Research Assistant @ Academia Sinica, building an open-source network digital twin.
-- Junior @ NCKU, Purdue ECE–NCKU CSIE Dual Degree Program candidate.
-
 <!-- CARD:START -->
 ```text
      .--.        adam@ndtwin
