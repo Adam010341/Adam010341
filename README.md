@@ -35,12 +35,6 @@
 
 ## What I'm working on — [NDTwin](https://ndtwin.org)
 
-[![CI](https://github.com/Adam010341/NDTwin-Kernel-P4/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Adam010341/NDTwin-Kernel-P4/actions/workflows/ci.yml)
-[![Last commit](https://img.shields.io/github/last-commit/Adam010341/NDTwin-Kernel-P4?logo=github&logoColor=white)](https://github.com/Adam010341/NDTwin-Kernel-P4/commits/main)
-![C++](https://img.shields.io/badge/kernel-C%2B%2B23-00599C?logo=cplusplus&logoColor=white)
-![Python](https://img.shields.io/badge/P4%20proxy-Python%20%2B%20P4Runtime-3776AB?logo=python&logoColor=white)
-![Data planes](https://img.shields.io/badge/data%20planes-OVS%20%2B%20Ryu%20%C2%B7%20P4%20%2B%20BMv2-555)
-
 - **P4/BMv2 support** — NDTwin ran only on Open vSwitch + Ryu; I'm adding a BMv2 control plane behind the same kernel APIs.
 - **Testing & CI** — unit tests, plus GitHub Actions running build, ctest and ASan/UBSan/TSan on every push.
 - **Performance** — kernel CPU usage and flow-sampling precision.
