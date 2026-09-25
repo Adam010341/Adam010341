@@ -66,11 +66,6 @@
 
 adam010341@gmail.com
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Adam010341/Adam010341/output/github-snake-dark.svg">
-  <img alt="Snake eating the contribution graph, regenerated daily" src="https://raw.githubusercontent.com/Adam010341/Adam010341/output/github-snake.svg">
-</picture>
-
 <sub><b>Latest commits to <a href="https://github.com/Adam010341/NDTwin-Kernel-P4">NDTwin-Kernel-P4</a></b></sub>
 
 <!-- BLOG-POST-LIST:START -->
