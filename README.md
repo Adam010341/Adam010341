@@ -54,11 +54,11 @@ adam010341@gmail.com
 <sub><b>Latest commits to <a href="https://github.com/Adam010341/NDTwin-Kernel-P4">NDTwin-Kernel-P4</a></b></sub>
 
 <!-- BLOG-POST-LIST:START -->
-- <sub>[Merge feat/p4-heartbeat-0925 segment H &lpar;TICKET-P4-heartbeat, Adam 09-…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/377a1271e93ff0f315689fc50e69b673fc3a9731) · 2026-09-25</sub>
-- <sub>[Merge fix/p4proxy-requirements-0925 &lpar;TICKET-p4proxy-requirements, Ada…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/a4c951a8c3bf79fd59fdad368f20c35bf62b66b9) · 2026-09-25</sub>
-- <sub>[heartbeat round 2 mutants: 6 more in the heartbeat gate, 3 in G-7&#39;s, …](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/b22e88ed1629bc0e28293ee6271d19e6bc0f9543) · 2026-09-25</sub>
-- <sub>[heartbeat round 2: refuse NDTwin&#39;s own pipeline, root-owned bmv2 only…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/f139c80012669fb77c5e4c5c9cb1c7521d021cfb) · 2026-09-25</sub>
-- <sub>[heartbeat round 2, tests first: Adam&#39;s two rulings, the judge&#39;s notes…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/fb4243e28b4e643d8781fe11cd5219abe7895788) · 2026-09-25</sub>
+- <sub>[Merge fix/07-heartbeat-links-0926 &lpar;opus judge MERGE on e012a5a7&rpar;: 07&#39;…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/3f8c2abfb108bfcc5e49e93b82898080f723dce2) · 2026-09-26</sub>
+- <sub>[Merge fix/08-h5-sampler-0926 &lpar;opus judge MERGE on f4f43a32&rpar;: live H5 …](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/0925d9fc6c0c6b132b8fed96b5dcac739ff361ac) · 2026-09-26</sub>
+- <sub>[Merge fix/ndt-serve-anchors-0926 &lpar;opus judge MERGE on 60194b09&rpar;: re-a…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/329dc555a7221b583fa2d71d208178a0c86d1e63) · 2026-09-26</sub>
+- <sub>[HB W gate: L49-L54 -- H5&#39;s sampler, its stop path, and 08&#39;s two live-…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/f4f43a3264a1dacc8c5a12e002204e5a08866fca) · 2026-09-26</sub>
+- <sub>[08 tests: the stop path&#39;s last read, and the two live-path programs n…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/5f15338203b73be3247bbfb09ef85d3c780d00ab) · 2026-09-26</sub>
 
 <!-- BLOG-POST-LIST:END -->
 
