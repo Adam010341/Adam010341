@@ -27,6 +27,11 @@
 - Undergraduate Researcher, Computer & Internet Architecture Lab, NCKU — Jul 2026–
 - Class representative, Purdue ECE–NCKU CSIE Dual Degree Program
 
+## Research
+
+- Learned index structures for dynamic packet classification — NCKU CIAL, advised by Prof. Yen-Kuang Chang
+- Measurement validity in BMv2 benchmarking (preprint in prep) — Independent research
+
 ## What I'm working on — [NDTwin](https://ndtwin.org)
 
 - **P4/BMv2 support** — NDTwin ran only on Open vSwitch + Ryu; I'm adding a BMv2 control plane behind the same kernel APIs.
@@ -39,11 +44,6 @@
   <source media="(prefers-color-scheme: dark)" srcset="assets/p4-packet-walk-dark.svg">
   <img alt="Animated NDTwin architecture: NDTwin apps (traffic-engineering, energy-saving, simulation / AI-driven) talk to the NDTwin kernel, which talks REST to two interchangeable backends. In the P4 backend (my addition), the P4 proxy agent drives BMv2 simple_switch_grpc in Mininet over P4Runtime (gRPC); a packet crosses h1, s1, s2, h2, each switch lights the ndtwin_switch.p4 table it matched (flow_5tuple first, ipv4_lpm on a miss), and a 1-in-256 sampled copy goes to the proxy, which sends synthesised sFlow v5 to the kernel. In the upstream OpenFlow backend, the Ryu controller drives Open vSwitch in Mininet over OpenFlow, and OVS sends sFlow to the kernel." src="assets/p4-packet-walk-light.svg" width="800">
 </picture>
-
-## Research
-
-- Learned index structures for dynamic packet classification — NCKU CIAL, advised by Prof. Yen-Kuang Chang
-- Measurement validity in BMv2 benchmarking (preprint in prep) — Independent research
 
 ### Tech stack
 
