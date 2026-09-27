@@ -48,22 +48,3 @@
 ### Tech stack
 
 <a href="https://skillicons.dev"><img alt="Skills" src="https://skillicons.dev/icons?i=c,cpp,py,java,verilog,matlab,bash,cmake,latex,linux,ubuntu,git,githubactions" height="32"></a>
-
-adam010341@gmail.com
-
-<sub><b>Latest commits to <a href="https://github.com/Adam010341/NDTwin-Kernel-P4">NDTwin-Kernel-P4</a></b></sub>
-
-<!-- BLOG-POST-LIST:START -->
-- <sub>[Merge fix/07-heartbeat-links-0926 &lpar;opus judge MERGE on e012a5a7&rpar;: 07&#39;…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/3f8c2abfb108bfcc5e49e93b82898080f723dce2) · 2026-09-26</sub>
-- <sub>[Merge fix/08-h5-sampler-0926 &lpar;opus judge MERGE on f4f43a32&rpar;: live H5 …](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/0925d9fc6c0c6b132b8fed96b5dcac739ff361ac) · 2026-09-26</sub>
-- <sub>[Merge fix/ndt-serve-anchors-0926 &lpar;opus judge MERGE on 60194b09&rpar;: re-a…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/329dc555a7221b583fa2d71d208178a0c86d1e63) · 2026-09-26</sub>
-- <sub>[HB W gate: L49-L54 -- H5&#39;s sampler, its stop path, and 08&#39;s two live-…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/f4f43a3264a1dacc8c5a12e002204e5a08866fca) · 2026-09-26</sub>
-- <sub>[08 tests: the stop path&#39;s last read, and the two live-path programs n…](https://github.com/Adam010341/NDTwin-Kernel-P4/commit/5f15338203b73be3247bbfb09ef85d3c780d00ab) · 2026-09-26</sub>
-
-<!-- BLOG-POST-LIST:END -->
-
-<sub><b>Coding activity</b></sub>
-
-<!--START_SECTION:waka-->
-<sub>Weekly coding-time stats from <a href="https://wakatime.com">WakaTime</a> will appear here once the <code>WAKATIME_API_KEY</code> repository secret is added.</sub>
-<!--END_SECTION:waka-->
