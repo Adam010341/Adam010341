@@ -32,13 +32,14 @@
 - Learned index structures for dynamic packet classification — NCKU CIAL, advised by Prof. Yen-Kuang Chang
 - Measurement validity in BMv2 benchmarking (preprint in prep) — Independent research
 
-## What I'm working on — [NDTwin](https://ndtwin.org)
+## [NDTwin](https://ndtwin.org): open-source network digital twin
 
-- **P4/BMv2 support** — NDTwin ran only on Open vSwitch + Ryu; I'm adding a BMv2 control plane behind the same kernel APIs.
-- **Testing & CI** — unit tests, plus GitHub Actions running build, ctest and ASan/UBSan/TSan on every push.
-- **Performance** — kernel CPU usage and flow-sampling precision.
-- **Fault injection** — chaos harnesses to probe defects and race conditions.
-- **Open-source release** — installation manual and VM images.
+- Kernel collects real-time flow states with a zero control-plane overhead sFlow scheme (IEEE ICC 2026).
+- Apps use simulation and AI/ML to test "what-if" scenarios in parallel, pick the best fix, and push it to the switches in real time.
+- Web GUI with LLM-based intent-based network management, plus a live traffic visualizer.
+- Runs on hardware switches or on Mininet. Usable for production network operation or as a research platform.
+
+I'm adding a P4/BMv2 backend next to the existing Open vSwitch + Ryu one, behind the same kernel APIs.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/p4-packet-walk-dark.svg">
