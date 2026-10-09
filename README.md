@@ -34,12 +34,21 @@
 
 ## [NDTwin](https://ndtwin.org): open-source network digital twin
 
-- Kernel collects real-time flow states with a zero control-plane overhead sFlow scheme (IEEE ICC 2026).
-- Apps use simulation and AI/ML to test "what-if" scenarios in parallel, pick the best fix, and push it to the switches in real time.
-- Web GUI with LLM-based intent-based network management, plus a live traffic visualizer.
-- Runs on hardware switches or on Mininet. Usable for production network operation or as a research platform.
+NDTwin keeps a live copy of a network: its topology, every flow and the bandwidth it uses, and which switches are on.
+Apps try a change on that copy first, then push the best one to the real switches.
 
-I'm adding a P4/BMv2 backend next to the existing Open vSwitch + Ryu one, behind the same kernel APIs.
+What it is used for:
+
+- **Some links are congested while others sit idle.** The traffic-engineering app watches every ECMP group and re-maps flows so the group's links share the load.
+- **The network is nearly empty at night, yet every switch stays powered.** The energy-saving app turns off switches whose links fall below a low watermark, and turns them back on when traffic returns, without lowering QoS.
+- **"What if I turn these switches off?"** Apps simulate many what-if cases in parallel on the twin's current state, pick the best outcome, and apply it in real time.
+- **Writing your own network app.** The kernel's REST API covers topology, flows, rules, power and fault injection. A traffic generator launches thousands of TCP/UDP flows from one config file, and a Mininet network lets you test before going to hardware.
+
+NDTwin runs on OpenFlow hardware switches or on Mininet. On a P4 switch, its sFlow scheme (IEEE ICC 2026) can sample as often as every packet with zero control-plane overhead, so even small flows are detected and measured accurately.
+
+**My part:** a P4/BMv2 backend next to the original Open vSwitch + Ryu one, behind the same kernel API, so behaviour that lives in a P4 pipeline can be studied with the same twin. Apps that rely on OpenFlow group tables, such as traffic engineering, stay on OpenFlow.
+
+Code: [ndtwin-lab](https://github.com/ndtwin-lab) (kernel, apps and tools) · [NDTwin-Kernel-P4](https://github.com/Adam010341/NDTwin-Kernel-P4) (P4 backend, testing release)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/p4-packet-walk-dark.svg">
