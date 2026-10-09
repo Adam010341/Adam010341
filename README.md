@@ -28,7 +28,6 @@
 ## Research
 
 - Learned index structures for packet classification (capstone, NCKU CIAL, advised by Prof. Yen-Kuang Chang).
-  I found three bugs in the error-bound analysis of NuevoMatch (SIGCOMM 2020) that make its RQ-RMI models return wrong rules: up to 14.6% of checked inputs on acl1 with the official code, 0 after the fixes.
   Patches and an exhaustive certifier: [nuevomatch-error-bound-fixes](https://github.com/Adam010341/nuevomatch-error-bound-fixes)
 - Measurement validity in BMv2 benchmarking (preprint in prep) — Independent research
 
