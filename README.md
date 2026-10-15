@@ -30,7 +30,7 @@
 - Learned index structures for packet classification (capstone, NCKU CIAL, advised by Prof. Yen-Kuang Chang).
   Patches and an exhaustive certifier: [nuevomatch-error-bound-fixes](https://github.com/Adam010341/nuevomatch-error-bound-fixes)
 - Post-quantum TLS negotiation measurement (course project): a research of how public HTTPS servers negotiate hybrid ML-KEM key exchange in TLS 1.3 [tls-pq-negotiation-scan](https://github.com/Adam010341/tls-pq-negotiation-scan).
-  Bug found and reported by this research: ([GHSA-w44r-93j7-qv28](https://github.com/rustls/rustls/security/advisories/GHSA-w44r-93j7-qv28), fixed in rustls 0.23.46).
+  Found and reported bug in rustls: ([GHSA-w44r-93j7-qv28](https://github.com/rustls/rustls/security/advisories/GHSA-w44r-93j7-qv28), fixed in 0.23.46).
 - Measurement validity in BMv2 benchmarking (preprint in prep) — Independent research
 
 ## [NDTwin](https://ndtwin.org): open-source network digital twin
