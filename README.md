@@ -1,17 +1,5 @@
 # Hi, I'm Adam Fan
 
-```text
-     .--.        adam@ndtwin
-    |o_o |       -----------
-    |:_/ |       Host       NCKU CSIE × Purdue ECE (dual degree candidate)
-   //   \ \      Role       Research Assistant @ Academia Sinica NSL
-  (|     | )     Focus      NDTwin, P4/BMv2 development line
- /'\_   _/`\     Languages  C · C++ · Python · P4 · Java · Verilog · MATLAB · asm
- \___)=(___/     Research   learned indexes for packet classification,
-                            measurement validity in BMv2 benchmarking
-                 Contact    adam010341@gmail.com
-```
-
 ## Education
 
 - NCKU CSIE, Junior · Purdue ECE–NCKU CSIE Dual Degree Program candidate
