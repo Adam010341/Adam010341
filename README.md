@@ -6,14 +6,14 @@
 - GPA 3.85/4.0
 - TOEIC 980/990
 
-## Research Experience
+## Experience
 
 - Summer intern, Network and System Laboratory, Academia Sinica — Jul 2026 — Sep 2026
 - Research Assistant, Network and System Laboratory, Academia Sinica — Sep 2026–
 - Undergraduate Researcher, Computer & Internet Architecture Lab, NCKU — Jul 2026–
 - Class representative, Purdue ECE–NCKU CSIE Dual Degree Program
 
-## Current Research
+## Research
 
 - Learned index structures for packet classification (capstone, NCKU CIAL, advised by Prof. Yen-Kuang Chang).
   Patches and an exhaustive certifier: [nuevomatch-error-bound-fixes](https://github.com/Adam010341/nuevomatch-error-bound-fixes)
